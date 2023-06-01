@@ -1,13 +1,14 @@
 import React from "react";
 import Link from "next/link";
-import NextImage from "./image";
+import Image from "./image";
 
 const Card = ({ article }) => {
+  article.attributes.hero = article.attributes.hero || { image: null };
   return (
     <Link href={`/article/${article.attributes.slug}`}>
         <div className="uk-card uk-card-muted">
           <div className="uk-card-media-top">
-            <NextImage image={article.attributes.image} />
+            <Image image={article.attributes.hero.image} />
           </div>
           <div className="uk-card-body">
             <p id="category" className="uk-text-uppercase">

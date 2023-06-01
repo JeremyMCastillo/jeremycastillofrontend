@@ -6,14 +6,18 @@ import Layout from "../../components/layout";
 
 import { fetchAPI } from "../../lib/api";
 import { getStrapiMedia } from "../../lib/media";
+import { GlobalContext } from "../../pages/_app";
+import { useContext } from "react";
 
 const Article = ({ article, categories }) => {
-  const imageUrl = getStrapiMedia(article.attributes.image);
+  const { defaultSeo } = useContext(GlobalContext);
+  const hero = article.attribute ? article.attribute.hero : { title: defaultSeo.title, image: defaultSeo.shareImage };
+  const imageUrl = getStrapiMedia(hero.image);
 
   const seo = {
-    metaTitle: article.attributes.title,
+    metaTitle: hero.title,
     metaDescription: article.attributes.description,
-    shareImage: article.attributes.image,
+    shareImage: hero.image,
     article: true,
   };
 
@@ -89,7 +93,7 @@ export async function getStaticProps({ params }) {
     filters: {
       slug: params.slug,
     },
-    populate: ["image", "category", "author.picture"],
+    populate: ["image", "category", "author.picture", "hero.title", "hero.image"],
   });
   const categoriesRes = await fetchAPI("/categories");
 
