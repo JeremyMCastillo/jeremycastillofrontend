@@ -8,7 +8,7 @@ const Card = ({ article }) => {
     <Link href={`/article/${article.attributes.slug}`}>
         <div className="uk-card uk-card-muted">
           <div className="uk-card-media-top">
-            <Image image={article.attributes.hero.image} />
+            <Image className="rounded-2xl" image={article.attributes.hero.image} />
           </div>
           <div className="uk-card-body">
             <p id="category" className="uk-text-uppercase">

@@ -8,13 +8,12 @@ class MyDocument extends Document {
           {/* eslint-disable-next-line */}
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Staatliches"
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap"
           />
           <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/uikit@3.10.1/dist/css/uikit.min.css"
           />
-          <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
           <script
             async
             src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.min.js"
@@ -26,9 +25,6 @@ class MyDocument extends Document {
           <script
             async
             src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.js"
-          />
-          <script 
-            src='https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js'
           />
         </Head>
         <body>

@@ -3,12 +3,16 @@ a {
   }
   
   h1 {
-    font-family: Staatliches;
+    font-family: 'Montserrat';
     font-size: 120px;
+  }
+
+  h2 {
+    font-size: 24px;
   }
   
   #category {
-    font-family: Staatliches;
+    font-family: 'Montserrat';
     font-weight: 500;
   }
   

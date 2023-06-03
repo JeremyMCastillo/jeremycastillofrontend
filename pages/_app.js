@@ -1,6 +1,7 @@
 import App from "next/app";
 import Head from "next/head";
 import "../assets/css/style.css";
+import "../app/globals.css";
 import { createContext } from "react";
 import { fetchAPI } from "../lib/api";
 import { getStrapiMedia } from "../lib/media";
@@ -37,6 +38,8 @@ MyApp.getInitialProps = async (ctx) => {
   const globalRes = await fetchAPI("/global", {
     populate: {
       favicon: "*",
+      defaultImage: "*",
+      profilePicture: "*",
       defaultSeo: {
         populate: "*",
       },

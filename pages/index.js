@@ -8,7 +8,7 @@ const Home = ({ articles, categories, homepage }) => {
   return (
     <Layout categories={categories}>
       <Seo seo={homepage.attributes.seo} />
-      <div className="p-4 sm:ml-64">
+      <div className="sm:ml-64">
         <h1>{homepage.attributes.hero.title}</h1>
         <Articles articles={articles} />
       </div>
