@@ -27,7 +27,7 @@ module.exports = {
       colors: {
         blue: {
           ...colors.blue,
-          600: '#314D68'
+          600: '#2F3D4E'
         },
         slate: {
           ...colors.slate,
