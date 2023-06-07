@@ -7,7 +7,7 @@ const Articles = ({ articles }) => {
   const rightArticles = articles.slice(leftArticlesCount, articles.length);
 
   return (
-    <div className=" p-4">
+    <div className="pt-6">
       <div className="uk-child-width-1-2@s" data-uk-grid="true">
         <div>
           {leftArticles.map((article, i) => {
