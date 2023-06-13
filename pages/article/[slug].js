@@ -11,7 +11,7 @@ import { useContext } from "react";
 
 const Article = ({ article, categories }) => {
   const { defaultSeo } = useContext(GlobalContext);
-  const hero = article.attribute ? article.attribute.hero : { title: defaultSeo.title, image: defaultSeo.shareImage };
+  const hero = article.attributes ? article.attributes.hero : { title: defaultSeo.title, image: defaultSeo.shareImage };
   const imageUrl = getStrapiMedia(hero.image);
 
   const seo = {
@@ -26,14 +26,14 @@ const Article = ({ article, categories }) => {
       <Seo seo={seo} />
       <div
         id="banner"
-        className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
+        className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding m-0 ml-64"
         data-src={imageUrl}
         data-srcset={imageUrl}
         data-uk-img
       >
         <h1>{article.attributes.title}</h1>
       </div>
-      <div className="uk-section">
+      <div className="uk-section h-full ml-64 bg-slate-50 dark:bg-blue-600">
         <div className="uk-container uk-container-small">
           <ReactMarkdown>
             {article.attributes.content}

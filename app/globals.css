@@ -30,3 +30,38 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+h1, h2, h3, h4, h5, h6, h7, h8 {
+  color: #2F3D4E;
+  font-weight: bold;
+}
+h1 {
+  font-size: 40px;
+  padding-bottom: 18px;
+}
+h2 { 
+  font-size: 30px;
+  padding-top: 18px;
+  padding-bottom: 5px;
+}
+h3 {
+  font-size: 20px;
+  padding-bottom: 0;
+  padding-top: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  h1, h2, h3, h4, h5, h6, h7, h8 {
+    color: #F9F5F2;
+  }
+}
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+hr {
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
