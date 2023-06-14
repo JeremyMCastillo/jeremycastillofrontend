@@ -21,14 +21,9 @@
   }
 }
 
-body {
+html {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: #F9F5F2;
 }
 
 h1, h2, h3, h4, h5, h6, h7, h8 {
@@ -53,12 +48,16 @@ h3 {
   h1, h2, h3, h4, h5, h6, h7, h8 {
     color: #F9F5F2;
   }
+  html {
+  color: rgb(var(--foreground-rgb));
+  background-color: #2F3D4E;
+}
 }
 a:hover {
   text-decoration: none;
   color: inherit;
 }
-hr {
+aside hr {
   width: 50%;
   display: block;
   margin-left: auto;

@@ -78,7 +78,7 @@ const Nav = ({ categories }) => {
           </li>
           <li>
             <Link
-              href='/category/projects'
+              href='/projects'
               className='flex items-center text-center content-center justify-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700'
             >
               <span className=''>Projects</span>

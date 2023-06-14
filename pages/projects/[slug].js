@@ -6,7 +6,7 @@ import Layout from "../../components/layout";
 
 import { fetchAPI } from "../../lib/api";
 import { getStrapiMedia } from "../../lib/media";
-import { GlobalContext } from "../../pages/_app";
+import { GlobalContext } from "../_app";
 import { useContext } from "react";
 
 const Article = ({ article, categories }) => {

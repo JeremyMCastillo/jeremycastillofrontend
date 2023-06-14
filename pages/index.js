@@ -12,7 +12,7 @@ const Home = ({ articles, categories, homepage }) => {
         <h1 className="text-blue-600 dark:text-slate-50 text-8xl py-28 pb-2 font-bold" dangerouslySetInnerHTML={{ __html: homepage.attributes.hero.title }}></h1>
         <subtitle className="mb-48 block pl-2 pt-4">{homepage.attributes.subtitle}</subtitle>
         <h2 className="text-blue-600 dark:text-slate-50 text-6xl font-bold font-chivo">My Work</h2>
-        <Articles articles={articles} />
+        <Articles route="projects" articles={articles} />
       </div>
     </Layout>
   );

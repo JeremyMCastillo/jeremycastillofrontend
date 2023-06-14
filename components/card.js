@@ -2,10 +2,10 @@ import React from 'react';
 import Link from 'next/link';
 import Image from './image';
 
-const Card = ({ article }) => {
+const Card = ({ article, route }) => {
   article.attributes.hero = article.attributes.hero || { image: null };
   return (
-    <Link href={`/article/${article.attributes.slug}`}>
+    <Link href={`/${route}/${article.attributes.slug}`}>
       <div className='uk-card uk-card-muted'>
         <div className='uk-card-media-top'>
           <Image

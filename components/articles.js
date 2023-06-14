@@ -1,8 +1,9 @@
 import React from 'react';
 import Card from './card';
 import Link from 'next/link';
+import Button from './button';
 
-const Articles = ({ articles }) => {
+const Articles = ({ articles, route }) => {
   const defaultTitle = 'Title Missing';
   return (
     <div className='pt-6'>
@@ -10,6 +11,7 @@ const Articles = ({ articles }) => {
         return !(i % 2) ? (
           <div key={article.id} className='grid grid-cols-2 gap-16 pb-12'>
             <Card
+              route={route}
               article={article}
               key={`article__left__${article.attributes.slug}`}
             />
@@ -22,9 +24,9 @@ const Articles = ({ articles }) => {
               <p className='pt-6'>{article.attributes.description}</p>
               <Link
                 className='absolute bottom-0'
-                href={`/article/${article.attributes.slug}`}
+                href={`/${route}/${article.attributes.slug}`}
               >
-                Read More
+                <Button onclick={() => {}}>Read More</Button>
               </Link>
             </div>
           </div>
@@ -39,12 +41,13 @@ const Articles = ({ articles }) => {
               <p className='pt-6'>{article.attributes.description}</p>
               <Link
                 className='absolute bottom-0'
-                href={`/article/${article.attributes.slug}`}
+                href={`/${route}/${article.attributes.slug}`}
               >
-                Read More
+                <Button onclick={() => {}}>Read More</Button>
               </Link>
             </div>
             <Card
+              route={route}
               article={article}
               key={`article__left__${article.attributes.slug}`}
             />

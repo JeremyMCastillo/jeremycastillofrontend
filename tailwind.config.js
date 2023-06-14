@@ -32,6 +32,10 @@ module.exports = {
         slate: {
           ...colors.slate,
           50: '#F9F5F2'
+        },
+        yellow: {
+          ...colors.yellow,
+          400: '#E0AF5A'
         }
       }
     }
