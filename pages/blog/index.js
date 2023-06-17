@@ -5,7 +5,7 @@ import Layout from "../../components/layout";
 export default function index({ posts, categories }) {
     return (
         <Layout categories={categories}>
-            <div className="uk-section h-full ml-64 bg-slate-50 dark:bg-blue-600">
+            <div className="pl-16 h-full ml-64 bg-slate-50 dark:bg-blue-600">
                 <Articles route="blog" articles={posts} />
             </div>
         </Layout>
