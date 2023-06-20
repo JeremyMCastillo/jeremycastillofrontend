@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from '../components/image';
 import { useContext } from 'react';
@@ -7,17 +7,28 @@ import { getStrapiMedia } from '../lib/media';
 
 const Nav = ({ categories }) => {
   const { profilePicture, siteName } = useContext(GlobalContext);
+  const [isOpen, setIsOpen] = useState(false);
+  const drawerClass = isOpen ? "translate-x-0" : "-translate-x-full";
+  const drawerKnobClass = isOpen ? "translate-x-64" : "translate-x-0";
 
   return (
+    <div>
+      <button onClick={() => {setIsOpen(!isOpen)}} data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" 
+      className={`inline-flex ${drawerKnobClass} transition-transform items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600`}>
+      <span class="sr-only">Open sidebar</span>
+      <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path clipRule="evenodd" fillRule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+      </svg>
+    </button>
     <aside
       id='default-sidebar'
-      className='fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 font-chivo'
+      className={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform ${drawerClass} md:translate-x-0 font-chivo`}
       aria-label='Sidebar'
     >
       <div className='h-full px-3 py-12 overflow-y-auto bg-blue-600 dark:bg-gray-800 shadow-[8px_0px_15px_3px_#00000024]'>
         <div className='flex flex-col content-center items-center justify-center'>
           <Image
-            className='rounded-full mb-2 w-20 md:w-48 border-2 border-solid border-black shadow-md'
+            className='rounded-full mb-2 w-24 md:w-48 border-2 border-solid border-black shadow-md'
             image={profilePicture}
           />
           <h2 className=' text-xl text-white dark:text-white font-chivo font-thin'>
@@ -95,6 +106,7 @@ const Nav = ({ categories }) => {
         </ul>
       </div>
     </aside>
+    </div>
   );
 };
 

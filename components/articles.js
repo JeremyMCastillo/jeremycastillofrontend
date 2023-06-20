@@ -14,7 +14,7 @@ const Articles = ({ articles, route }) => {
             key={`article__left__${articles[0].attributes.slug}`}
           />
         </div>
-        <div className='pb-12 w-11/12 grid grid-cols-2 gap-6'>
+        <div className='pb-12 w-11/12 grid grid-cols-1 xl:grid-cols-2 gap-6'>
           {articles.slice(1).map((article, i) => {
             return (
                 <Card
