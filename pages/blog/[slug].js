@@ -33,7 +33,7 @@ const Post = ({post, categories}) => {
         >
           <h1>{post.attributes.title}</h1>
         </div>
-        <div className="uk-section h-full ml-64 bg-slate-50 dark:bg-blue-600">
+        <div className="post uk-section h-full ml-64 bg-slate-50 dark:bg-blue-600">
           <div className="uk-container uk-container-small">
             <ReactMarkdown>
               {post.attributes.content}

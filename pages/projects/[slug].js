@@ -33,7 +33,7 @@ const Article = ({ article, categories }) => {
       >
         <h1>{article.attributes.title}</h1>
       </div>
-      <div className="uk-section h-full ml-64 bg-slate-50 dark:bg-blue-600">
+      <div className="post uk-section h-full ml-64 bg-slate-50 dark:bg-blue-600">
         <div className="uk-container uk-container-small">
           <ReactMarkdown>
             {article.attributes.content}

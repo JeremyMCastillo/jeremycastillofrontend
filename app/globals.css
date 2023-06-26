@@ -42,14 +42,25 @@ h2 {
 h3 {
   padding-bottom: 10px
 }
+.post a {
+  color: #2F3D4E;
+  text-decoration: underline;
+}
+.post p {
+  margin-bottom: 14px;
+}
 @media (prefers-color-scheme: dark) {
   h1, h2, h3, h4, h5, h6, h7, h8 {
     color: #F9F5F2;
   }
   html {
-  color: rgb(var(--foreground-rgb));
-  background-color: #2F3D4E;
-}
+    color: rgb(var(--foreground-rgb));
+    background-color: #2F3D4E;
+  }
+  .post a {
+    color: #E0AF5A;
+    text-decoration: underline;
+  }
 }
 a:hover {
   text-decoration: none;
