@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Button from './button';
 
 const Articles = ({ articles, route }) => {
-  return (
+  return articles.length > 0 ? (
     <div className='pt-6'>
       <div className='pb-6'>
           <Card
@@ -25,7 +25,7 @@ const Articles = ({ articles, route }) => {
           })}
         </div>
     </div>
-  );
+  ) : null;
 };
 
 export default Articles;
