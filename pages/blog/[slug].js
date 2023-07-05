@@ -26,14 +26,14 @@ const Post = ({post, categories}) => {
         <Seo seo={seo} />
         <div
           id="banner"
-          className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding m-0 ml-64"
+          className="h-[400px] md:h-[600px] uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding m-0 pl-16 md:pl-80"
           data-src={imageUrl}
           data-srcset={imageUrl}
           data-uk-img
         >
           <h1>{post.attributes.title}</h1>
         </div>
-        <div className="post uk-section h-full ml-64 bg-slate-50 dark:bg-blue-600">
+        <div className="post uk-section h-full pl-12 pr-12 md:pl-80 bg-slate-50 dark:bg-blue-600">
           <div className="uk-container uk-container-small">
             <ReactMarkdown>
               {post.attributes.content}

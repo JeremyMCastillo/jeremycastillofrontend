@@ -9,7 +9,7 @@ const Card = ({ article, route, className }) => {
     <div className={`${className} p-6 grid grid-cols-1 lg:grid-cols-2 lg:gap-8 border-collapse border-solid border-2 border-blue-600 dark:border-slate-50 rounded-2xl`}>
       <Link href={`/${route}/${article.attributes.slug}`}>
         <div className='uk-card-media-top'>
-          <h3 className='font-chivo text-xl sm:text-2xl md:text-2xl text-blue-600 dark:text-slate-50 whitespace-nowrap'>
+          <h3 className='font-chivo text-xl sm:text-2xl md:text-2xl text-blue-600 dark:text-slate-50'>
             {article.attributes.hero
               ? article.attributes.hero.title
               : defaultTitle}
