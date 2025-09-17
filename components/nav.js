@@ -6,7 +6,9 @@ import { GlobalContext } from '../pages/_app';
 import { getStrapiMedia } from '../lib/media';
 
 const Nav = ({ categories }) => {
-  const { profilePicture, siteName } = useContext(GlobalContext);
+  const globalContext = useContext(GlobalContext);
+  const profilePicture = globalContext.profilePicture || null;
+  const siteName = globalContext.siteName || "My Site";  
   const [isOpen, setIsOpen] = useState(false);
   const drawerClass = isOpen ? "translate-x-0" : "-translate-x-full";
   const drawerKnobClass = isOpen ? "translate-x-56" : "-translate-x-10";

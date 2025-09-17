@@ -4,8 +4,9 @@ import NextImage from "next/image";
 import { GlobalContext } from "../pages/_app";
 
 const Image = ({ image, className }) => {
-  const { defaultImage } = useContext(GlobalContext);
-  const { alternativeText, width, height } = image ? image.data.attributes : {alternativeText: "", width: 200, height: 200};
+  const globalContext = useContext(GlobalContext);
+  const defaultImage = globalContext?.defaultImage || "";
+  const { alternativeText, width, height } = image ? image : {alternativeText: "", width: 200, height: 200};
 
   return (
     <NextImage

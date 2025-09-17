@@ -11,7 +11,7 @@ const Articles = ({ articles, route }) => {
             className="w-11/12"
             route={route}
             article={articles[0]}
-            key={`article__left__${articles[0].attributes.slug}`}
+            key={`article__left__${articles[0]?.slug || ''}`}
           />
         </div>
         <div className='pb-12 w-11/12 grid grid-cols-1 xl:grid-cols-2 gap-6'>
@@ -20,7 +20,7 @@ const Articles = ({ articles, route }) => {
                 <Card
                   route={route}
                   article={article}
-                  key={`article__left__${article.attributes.slug}`}
+                  key={`article__left__${article?.slug || ''}`}
                 />)
           })}
         </div>

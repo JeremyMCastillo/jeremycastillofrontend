@@ -6,8 +6,8 @@ import { fetchAPI } from "../../lib/api";
 
 const Category = ({ category, categories }) => {
   const seo = {
-    metaTitle: category.attributes.name,
-    metaDescription: `All ${category.attributes.name} articles`,
+    metaTitle: category.name,
+    metaDescription: `All ${category.name} articles`,
   };
 
   return (
@@ -15,8 +15,8 @@ const Category = ({ category, categories }) => {
       <Seo seo={seo} />
       <div className="uk-section">
         <div className="uk-container uk-container-large">
-          <h1>{category.attributes.name}</h1>
-          <Articles articles={category.attributes.articles.data} />
+          <h1>{category.name}</h1>
+          <Articles articles={category.articles.data} />
         </div>
       </div>
     </Layout>
@@ -29,7 +29,7 @@ export async function getStaticPaths() {
   return {
     paths: categoriesRes.data.map((category) => ({
       params: {
-        slug: category.attributes.slug,
+        slug: category.slug,
       },
     })),
     fallback: false,

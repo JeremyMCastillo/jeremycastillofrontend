@@ -11,12 +11,12 @@ import { useContext } from "react";
 
 const Post = ({post, categories}) => {
     const { defaultSeo } = useContext(GlobalContext);
-    const hero = post.attributes ? post.attributes.hero : { title: defaultSeo.title, image: defaultSeo.shareImage };
+    const hero = post ? post.hero : { title: defaultSeo.title, image: defaultSeo.shareImage };
     const imageUrl = getStrapiMedia(hero.image);
   
     const seo = {
       metaTitle: hero.title,
-      metaDescription: post.attributes.description,
+      metaDescription: post.description,
       shareImage: hero.image,
       post: true,
     };
@@ -31,24 +31,24 @@ const Post = ({post, categories}) => {
           data-srcset={imageUrl}
           data-uk-img
         >
-          <h1>{post.attributes.title}</h1>
+          <h1>{post.title}</h1>
         </div>
         <div className="post uk-section h-full pl-12 pr-12 md:pl-80 bg-slate-50 dark:bg-blue-600">
           <div className="uk-container uk-container-small">
             <ReactMarkdown>
-              {post.attributes.content}
+              {post.content}
             </ReactMarkdown>
             <hr className="uk-divider-small" />
             <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
               <div>
-                {post.attributes.writer.data.attributes.picture && (
+                {post.writer.picture && (
                   <img
                     src={getStrapiMedia(
-                      post.attributes.writer.data.attributes.picture
+                      post.writer.data.picture
                     )}
                     alt={
-                      post.attributes.writer.data.attributes.picture.data
-                        .attributes.alternativeText
+                      post.writer.data.picture.data
+                        .alternativeText
                     }
                     style={{
                       position: "static",
@@ -60,11 +60,11 @@ const Post = ({post, categories}) => {
               </div>
               <div className="uk-width-expand">
                 <p className="uk-margin-remove-bottom">
-                  By {post.attributes.writer.data.attributes.name}
+                  By {post.writer.name}
                 </p>
                 <p className="uk-text-meta uk-margin-remove-top">
                   <Moment format="MMM Do YYYY">
-                    {post.attributes.published_at}
+                    {post.published_at}
                   </Moment>
                 </p>
               </div>
@@ -81,7 +81,7 @@ export async function getStaticPaths() {
     return {
         paths: posts.data.map((post) => ({
             params: {
-                slug: post.attributes.slug
+                slug: post.slug
             }
         })),
         fallback:false

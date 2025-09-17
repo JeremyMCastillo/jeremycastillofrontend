@@ -11,12 +11,12 @@ import { useContext } from "react";
 
 const Article = ({ article, categories }) => {
   const { defaultSeo } = useContext(GlobalContext);
-  const hero = article.attributes ? article.attributes.hero : { title: defaultSeo.title, image: defaultSeo.shareImage };
+  const hero = article ? article : { title: defaultSeo.title, image: defaultSeo.shareImage };
   const imageUrl = getStrapiMedia(hero.image);
 
   const seo = {
     metaTitle: hero.title,
-    metaDescription: article.attributes.description,
+    metaDescription: article.description,
     shareImage: hero.image,
     article: true,
   };
@@ -31,23 +31,23 @@ const Article = ({ article, categories }) => {
         data-srcset={imageUrl}
         data-uk-img
       >
-        <h1>{article.attributes.title}</h1>
+        <h1>{article.title}</h1>
       </div>
       <div className="post uk-section h-full pl-12 pr-12 md:pl-80 bg-slate-50 dark:bg-blue-600">
         <div className="uk-container uk-container-small">
           <ReactMarkdown>
-            {article.attributes.content}
+            {article.content}
           </ReactMarkdown>
           <hr className="uk-divider-small" />
           <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
             <div>
-              {article.attributes.author.data.attributes.picture && (
+              {article.author.picture && (
                 <img
                   src={getStrapiMedia(
-                    article.attributes.author.data.attributes.picture
+                    article.author.picture
                   )}
                   alt={
-                    article.attributes.author.data.attributes.picture.data
+                    article.author.picture.data
                       .attributes.alternativeText
                   }
                   style={{
@@ -60,11 +60,11 @@ const Article = ({ article, categories }) => {
             </div>
             <div className="uk-width-expand">
               <p className="uk-margin-remove-bottom">
-                By {article.attributes.author.data.attributes.name}
+                By {article.author.name}
               </p>
               <p className="uk-text-meta uk-margin-remove-top">
                 <Moment format="MMM Do YYYY">
-                  {article.attributes.published_at}
+                  {article.published_at}
                 </Moment>
               </p>
             </div>
@@ -81,7 +81,7 @@ export async function getStaticPaths() {
   return {
     paths: articlesRes.data.map((article) => ({
       params: {
-        slug: article.attributes.slug,
+        slug: article.slug,
       },
     })),
     fallback: false,
