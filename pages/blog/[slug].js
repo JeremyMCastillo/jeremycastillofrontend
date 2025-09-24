@@ -12,7 +12,7 @@ import { useContext } from "react";
 const Post = ({post, categories}) => {
     const { defaultSeo } = useContext(GlobalContext);
     const hero = post ? post.hero : { title: defaultSeo.title, image: defaultSeo.shareImage };
-    const imageUrl = getStrapiMedia(hero.image);
+    const imageUrl = getStrapiMedia(hero?.image || defaultSeo.shareImage);
   
     const seo = {
       metaTitle: hero.title,
@@ -92,9 +92,10 @@ export async function getStaticProps({ params }){
         filters: {
             slug: params.slug
         },
-        populate: ["hero.title", "hero.image", "category", "writer.picture"]
+        populate: ["hero", "hero.image", "writer"]
     });
     const categoriesRes = await fetchAPI("/categories");
+  console.log(postsRes.data[0]);
 
     return {
         props:{

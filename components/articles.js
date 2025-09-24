@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Button from './button';
 
 const Articles = ({ articles, route }) => {
-  return articles.length > 0 ? (
+  return articles && articles.length > 0 ? (
     <div className='pt-6'>
       <div className='pb-6'>
           <Card
