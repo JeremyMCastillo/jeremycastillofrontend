@@ -17,10 +17,13 @@ export async function getStaticProps(ctx){
     const articlesRes = await fetchAPI("/articles", { populate: ["hero", "hero.image"]});
     const categoriesRes = await fetchAPI("/categories");
 
+    const globalRes = await fetchAPI("/global");
+
     return {
         props:{
             articles: articlesRes.data,
-            categories: categoriesRes.data
+            categories: categoriesRes.data,
+            globalData: globalRes.data,
         }
     }
 }

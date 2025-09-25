@@ -20,12 +20,13 @@ const Home = ({ articles, categories, homepage }) => {
 
 export async function getStaticProps() {
   // Run API calls in parallel
-  const [articlesRes, categoriesRes, homepageRes] = await Promise.all([
+  const [articlesRes, categoriesRes, homepageRes, globalRes] = await Promise.all([
     fetchAPI("/articles", { populate: []}),
     fetchAPI("/categories"),
     fetchAPI("/homepage", {
       populate: ["hero", "hero.image", "seo"],
     }),
+    fetchAPI("/global"),
   ]);
 
   return {
@@ -33,8 +34,8 @@ export async function getStaticProps() {
       articles: articlesRes.data,
       categories: categoriesRes.data,
       homepage: homepageRes.data,
+      globalData: globalRes.data,
     },
-    revalidate: 1,
   };
 }
 

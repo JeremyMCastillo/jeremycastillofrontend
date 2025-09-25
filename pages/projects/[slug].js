@@ -93,13 +93,13 @@ export async function getStaticProps({ params }) {
     filters: {
       slug: params.slug,
     },
-    populate: ["image", "category", "author.picture", "hero.title", "hero.image"],
+    populate: ["author", "hero", "hero.image"],
   });
   const categoriesRes = await fetchAPI("/categories");
+  const globalRes = await fetchAPI("/global");
 
   return {
-    props: { article: articlesRes.data[0], categories: categoriesRes },
-    revalidate: 1,
+    props: { article: articlesRes.data[0], categories: categoriesRes, globalData: globalRes.data },
   };
 }
 

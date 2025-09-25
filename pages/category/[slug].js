@@ -46,13 +46,14 @@ export async function getStaticProps({ params }) {
     },
   });
   const allCategories = await fetchAPI("/categories");
+  const globalRes = await fetchAPI("/global");
 
   return {
     props: {
       category: matchingCategories.data[0],
       categories: allCategories,
+      globalData: globalRes.data,
     },
-    revalidate: 1,
   };
 }
 

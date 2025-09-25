@@ -7,8 +7,8 @@ import { getStrapiMedia } from '../lib/media';
 
 const Nav = ({ categories }) => {
   const globalContext = useContext(GlobalContext);
-  const profilePicture = globalContext.profilePicture || null;
-  const siteName = globalContext.siteName || "My Site";  
+  const profilePicture = globalContext?.profilePicture || null;
+  const siteName = globalContext?.siteName || "My Site";  
   const [isOpen, setIsOpen] = useState(false);
   const drawerClass = isOpen ? "translate-x-0" : "-translate-x-full";
   const drawerKnobClass = isOpen ? "translate-x-56" : "-translate-x-10";
@@ -95,14 +95,6 @@ const Nav = ({ categories }) => {
               className='flex items-center text-center content-center justify-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700'
             >
               <span className=''>Projects</span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              href='/contact'
-              className='flex items-center text-center content-center justify-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700'
-            >
-              <span className=''>Contact</span>
             </Link>
           </li>
         </ul>

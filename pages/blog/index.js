@@ -13,14 +13,16 @@ export default function index({ posts, categories }) {
 }
 
 
-export async function getStaticProps(ctx){
+export async function getStaticProps(){
     const postsRes = await fetchAPI("/posts", { populate: ["hero", "hero.image"]});
     const categoriesRes = await fetchAPI("/categories");
+    const globalRes = await fetchAPI("/global");
 
     return {
         props:{
             posts: postsRes.data,
-            categories: categoriesRes.data
+            categories: categoriesRes.data,
+            globalData: globalRes.data,
         }
     }
 }
