@@ -10,6 +10,11 @@ pipeline {
   }
 
   stages {
+    stage('Debug') {
+      steps {
+        echo "GIT_BRANCH: ${env.GIT_BRANCH}"
+      }
+    }
     stage('Build') {
       when {
         branch 'master'
