@@ -65,7 +65,7 @@ const Post = ({ post, categories }) => {
             <div className="uk-width-expand">
               <p className="uk-margin-remove-bottom">By {post.writer.name}</p>
               <p className="uk-text-meta uk-margin-remove-top">
-                <Moment format="MMM Do YYYY">{post.published_at}</Moment>
+                <Moment format="MMM Do YYYY">{post.publishedAt}</Moment>
               </p>
             </div>
           </div>

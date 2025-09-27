@@ -67,7 +67,7 @@ const Article = ({ article, categories }) => {
                 By {article.author.name}
               </p>
               <p className="uk-text-meta uk-margin-remove-top">
-                <Moment format="MMM Do YYYY">{article.published_at}</Moment>
+                <Moment format="MMM Do YYYY">{article.publishedAt}</Moment>
               </p>
             </div>
           </div>
