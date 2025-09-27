@@ -12,7 +12,7 @@ import { useContext } from "react";
 const Article = ({ article, categories }) => {
   const { defaultSeo } = useContext(GlobalContext);
   const hero = article
-    ? article
+    ? article.hero
     : { title: defaultSeo.title, image: defaultSeo.shareImage };
   const imageUrl = getStrapiMedia(hero.image);
 
