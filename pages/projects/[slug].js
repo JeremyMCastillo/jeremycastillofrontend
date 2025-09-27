@@ -11,7 +11,9 @@ import { useContext } from "react";
 
 const Article = ({ article, categories }) => {
   const { defaultSeo } = useContext(GlobalContext);
-  const hero = article ? article : { title: defaultSeo.title, image: defaultSeo.shareImage };
+  const hero = article
+    ? article
+    : { title: defaultSeo.title, image: defaultSeo.shareImage };
   const imageUrl = getStrapiMedia(hero.image);
 
   const seo = {
@@ -21,35 +23,37 @@ const Article = ({ article, categories }) => {
     article: true,
   };
 
+  const banner = function () {
+    if (imageUrl) {
+      return (
+        <div
+          id="banner"
+          className="h-[400px] md:h-[600px] uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding m-0 pl-16 md:pl-80 max-w-full"
+          data-src={imageUrl}
+          data-srcset={imageUrl}
+          data-uk-img
+        >
+          <h1>{article.title}</h1>
+        </div>
+      );
+    }
+    return;
+  };
+
   return (
     <Layout categories={categories.data}>
       <Seo seo={seo} />
-      <div
-        id="banner"
-        className="h-[400px] md:h-[600px] uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding m-0 pl-16 md:pl-80 max-w-full"
-        data-src={imageUrl}
-        data-srcset={imageUrl}
-        data-uk-img
-      >
-        <h1>{article.title}</h1>
-      </div>
+      {banner()}
       <div className="post uk-section h-full pl-12 pr-12 md:pl-80 bg-slate-50 dark:bg-blue-600">
         <div className="uk-container uk-container-small">
-          <ReactMarkdown>
-            {article.content}
-          </ReactMarkdown>
+          <ReactMarkdown>{article.content}</ReactMarkdown>
           <hr className="uk-divider-small" />
           <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
             <div>
               {article.author.picture && (
                 <img
-                  src={getStrapiMedia(
-                    article.author.picture
-                  )}
-                  alt={
-                    article.author.picture.data
-                      .attributes.alternativeText
-                  }
+                  src={getStrapiMedia(article.author.picture)}
+                  alt={article.author.picture.data.attributes.alternativeText}
                   style={{
                     position: "static",
                     borderRadius: "20%",
@@ -63,9 +67,7 @@ const Article = ({ article, categories }) => {
                 By {article.author.name}
               </p>
               <p className="uk-text-meta uk-margin-remove-top">
-                <Moment format="MMM Do YYYY">
-                  {article.published_at}
-                </Moment>
+                <Moment format="MMM Do YYYY">{article.published_at}</Moment>
               </p>
             </div>
           </div>
@@ -99,7 +101,11 @@ export async function getStaticProps({ params }) {
   const globalRes = await fetchAPI("/global");
 
   return {
-    props: { article: articlesRes.data[0], categories: categoriesRes, globalData: globalRes.data },
+    props: {
+      article: articlesRes.data[0],
+      categories: categoriesRes,
+      globalData: globalRes.data,
+    },
   };
 }
 
