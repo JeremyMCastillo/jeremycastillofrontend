@@ -43,6 +43,7 @@ const Post = ({ post, categories }) => {
   return (
     <Layout categories={categories.data}>
       <Seo seo={seo} />
+      {banner()}
       <div className="post uk-section h-full pl-12 pr-12 md:pl-80 bg-slate-50 dark:bg-blue-600">
         <div className="uk-container uk-container-small">
           <ReactMarkdown>{post.content}</ReactMarkdown>
