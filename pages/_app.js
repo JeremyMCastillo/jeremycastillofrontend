@@ -17,7 +17,7 @@ const MyApp = ({ Component, pageProps }) => {
       <Head>
         <link
           rel="shortcut icon"
-          href={getStrapiMedia(global?.favicon) || "/favicon.ico"}
+          href={getStrapiMedia(pageProps.globalData.favicon) || "/favicon.ico"}
         />
       </Head>
       <GlobalContext.Provider value={pageProps.globalData}>
@@ -30,9 +30,9 @@ const MyApp = ({ Component, pageProps }) => {
 export async function getStaticProps() {
   // Fetch global site settings from Strapi
   const globalRes = await fetchAPI("/global");
-  console.log(globalRes);
+  console.log("Global Res:", globalRes);
   // Pass the data to our page via props
   return { ...appProps, pageProps: { global: globalRes.data } };
-};
+}
 
 export default MyApp;
