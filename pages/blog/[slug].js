@@ -92,7 +92,7 @@ export async function getStaticProps({ params }) {
     filters: {
       slug: params.slug,
     },
-    populate: ["hero", "hero.image", "writer"],
+    populate: ["hero", "hero.image", "writer", "seo", "seo.shareImage"],
   });
   const categoriesRes = await fetchAPI("/categories");
   const globalRes = await fetchAPI("/global");
