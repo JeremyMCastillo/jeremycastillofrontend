@@ -7,7 +7,7 @@ const Image = ({ image, className }) => {
   const defaultSquareSize = 450;
   const globalContext = useContext(GlobalContext);
   const defaultImage = globalContext?.defaultImage || "";
-  const { alternativeText, width, height } = image.url
+  const { alternativeText, width, height } = image?.url
     ? image
     : {
         alternativeText: "",
@@ -20,7 +20,7 @@ const Image = ({ image, className }) => {
       className={className}
       width={width}
       height={height}
-      src={getStrapiMedia(image.url ? image : defaultImage)}
+      src={getStrapiMedia(image?.url ? image : defaultImage)}
       alt={alternativeText || ""}
     />
   );
