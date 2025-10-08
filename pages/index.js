@@ -31,6 +31,8 @@ export async function getStaticProps() {
     await Promise.all([
       fetchAPI("/articles", {
         populate: ["hero", "hero.image", "seo", "seo.shareImage"],
+        fields: ["description", "slug", "publishedAt"],
+        sort: "publishedAt:desc",
       }),
       fetchAPI("/categories"),
       fetchAPI("/homepage", {
@@ -38,6 +40,8 @@ export async function getStaticProps() {
       }),
       fetchAPI("/global"),
     ]);
+
+  console.log(articlesRes.data);
 
   return {
     props: {

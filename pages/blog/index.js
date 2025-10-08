@@ -15,6 +15,7 @@ export default function index({ posts, categories }) {
 export async function getStaticProps() {
   const postsRes = await fetchAPI("/posts", {
     populate: ["hero", "hero.image", "seo", "seo.shareImage"],
+    sort: "publishedAt:desc",
   });
   const categoriesRes = await fetchAPI("/categories");
   const globalRes = await fetchAPI("/global");

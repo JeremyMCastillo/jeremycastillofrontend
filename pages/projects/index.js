@@ -15,6 +15,7 @@ export default function index({ articles, categories }) {
 export async function getStaticProps(ctx) {
   const articlesRes = await fetchAPI("/articles", {
     populate: ["hero", "hero.image", "seo", "seo.shareImage"],
+    sort: "publishedAt:desc",
   });
   const categoriesRes = await fetchAPI("/categories");
 
